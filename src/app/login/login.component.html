@@ -1,0 +1,29 @@
+<form [formGroup]="loginformid" ngClass="loginSave(loginformid)">
+<div class="form-group row mt-2 col-md-4">
+        <label  class="col-md-3 col-form-label">Email</label>
+     <div class="col-md-8">
+          <input type="text" class="form-control" formControlName="email">
+          <div class="invalid-feedback" [ngClass]="{'display':loginformid.get('email').invalid && loginformid.get('email').touched}"
+          *ngIf="loginformid.get('email').invalid">
+               Enter valid email
+           </div>
+     </div>
+</div>
+<div class="form-group row mt-2 col-md-4">
+        <label  class="col-md-3 col-form-label">Password</label>
+             <div class="col-md-8">          
+               <input type="text"  class="form-control" formControlName="pwd">
+            
+    <div class="invalid-feedback" *ngIf="loginformid.get('pwd').invalid" [ngClass]="{'display':loginformid.get('pwd').invalid && loginformid.get('pwd').touched}">
+                Enter valid password
+              </div>
+            </div>
+</div>
+<div class="form-group row  col-md-8 ">
+    <div class="col-md-2">&nbsp;</div>
+    <button class="btn btn-primary pl-1">submit</button>
+
+</div>
+</form>
+      
+
