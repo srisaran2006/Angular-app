@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/for
 })
 export class LoginComponent implements OnInit {
   loginformid: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder , private router: Router) { }
 
   ngOnInit() {
    this.loginformid = this.fb.group({
@@ -17,7 +18,7 @@ pwd: ['', Validators.required]
     });
   }
   loginSave(form) {
-
+        this.router.navigate(['dashboard']);
   }
 
 }

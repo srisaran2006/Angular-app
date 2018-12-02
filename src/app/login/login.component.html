@@ -1,4 +1,4 @@
-<form [formGroup]="loginformid" ngClass="loginSave(loginformid)">
+<form [formGroup]="loginformid" (ngSubmit)="loginSave(loginformid)">
 <div class="form-group row mt-2 col-md-4">
         <label  class="col-md-3 col-form-label">Email</label>
      <div class="col-md-8">
