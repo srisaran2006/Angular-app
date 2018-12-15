@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CustomValidatior } from '../custom-validatior';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
    this.loginformid = this.fb.group({
-email: ['', [Validators.required, Validators.email]],
-pwd: ['', Validators.required]
+    email: ['', [Validators.required, Validators.email]],
+    password: this.fb.group({
+      pwd: ['', Validators.required],
+      confirm: ['', Validators.required]
+    }, {validator: CustomValidatior.MatchPassword })
     });
   }
   loginSave(form) {
-        this.router.navigate(['dashboard']);
+    //console.log('form', form);
+    this.router.navigate(['dashboard']);
   }
 
 }
